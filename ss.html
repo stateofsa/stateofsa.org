@@ -1,0 +1,87 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Preorder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: #333;
+      color: #fff;
+    }
+    h1, p {
+      color: #fff;
+    }
+    #countdown {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    #product-details {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #555;
+      border-radius: 8px;
+      background-color: #444;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    #preorder-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 50px;
+      background-color: #000;
+      color: #f5f5f5;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    #preorder-button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Preorder Now!</h1>
+  <p>Don't miss out on the exciting new game. Preorder today!</p>
+
+  <div id="countdown"></div>
+
+  <div id="product-details">
+    <h2>Game Title: The Unknown</h2>
+    <p>by: Sageimatic Studio</p>
+    <p>ESRB Rating: RP (Rating Pending)</p><p>ESRB INFO: Users Interact</p>
+    <p>Preorder Price: $17.00</p>
+    <a id="preorder-button" href="#">Preorder Starts February 2024</a>
+  </div>
+
+  <script>
+    // Set the release date (February 9th, 2024)
+    const releaseDate = new Date("February 9, 2024 00:00:00").getTime();
+
+    // Update the countdown every second
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = releaseDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      // If the countdown is over, display a message
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "The game is now available!";
+      }
+    }, 1000);
+  </script>
+
+
+
+</body></html>
